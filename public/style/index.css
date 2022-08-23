@@ -1,0 +1,41 @@
+.jumbotron {
+  padding: 2rem;
+  /* background-color: bisque; */
+  text-align: center;
+  font-size: 5rem;
+  text-transform: capitalize;
+  border-radius: 22px;
+}
+.bg-blacky {
+  background-color: rgba(233, 231, 231, 0.411);
+}
+.bg-gray {
+  background-color: rgb(252, 246, 246);
+  border: 1px solid rgba(52, 44, 161, 0.644);
+  /* border: 1px solid rgba(192, 191, 191, 0.644); */
+}
+.markcompleted {
+  background-color: rgba(9, 9, 126, 0.712);
+  color: white;
+  /* background-color: rgba(16, 3, 250, 0.582); */
+}
+.text-yellow {
+  color: yellow;
+}
+
+a a:link,
+.nolinkdecoration {
+  /* font-style: none; */
+  /* color: rgb(55, 55, 156); */
+  text-decoration: none !important;
+  /* color: black !important; */
+}
+
+.reactplayerstyle {
+  height: " 300px";
+  width: " 300px";
+}
+
+.pointer {
+  cursor: pointer;
+}
