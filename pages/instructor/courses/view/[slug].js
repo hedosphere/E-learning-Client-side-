@@ -8,6 +8,7 @@ import {
   CheckOutlined,
   CloseOutlined,
   EditOutlined,
+  UserSwitchOutlined,
   QuestionOutlined,
   UploadOutlined,
 } from "@ant-design/icons";
@@ -20,9 +21,10 @@ import { toast } from "react-toastify";
 
 //
 
-// main function
+// main function Enroll
 const Slug = (p) => {
   // state
+  const [enroll, setEnroll] = useState(0);
   const [course, setCourse] = useState();
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -165,7 +167,7 @@ const Slug = (p) => {
         setCourse(data);
         toast("Congrate your course is live");
       }
-      //
+      // Edit
     } catch (err) {
       toast("Course publish fail");
     }
@@ -193,6 +195,22 @@ const Slug = (p) => {
       toast("Course publish fail");
     }
   };
+
+  //
+
+  // course  values
+
+  const getEnroll = async () => {
+    console.log(slug);
+    const { data } = await axios.get(`/api/course/enroll/${slug}`);
+    // console.log(data);
+    setEnroll(data);
+  };
+  //
+  useEffect((p) => {
+    getEnroll();
+  }, []);
+  //
 
   //
 
@@ -224,6 +242,15 @@ const Slug = (p) => {
                 <p style={{ marginTop: "-10px" }}>{course.category}</p>
               </div>
               <div className="ant-col-xs-2 mt-4 d-flex">
+                <Tooltip
+                  className={`pointer h5 me-4 ${
+                    enroll > 0 ? "text-success" : "text-warning"
+                  } `}
+                  title={`${enroll} Enroll`}
+                >
+                  <UserSwitchOutlined className="text-success" />
+                </Tooltip>
+
                 <Tooltip
                   onClick={(p) =>
                     router.push(`/instructor/courses/edit/${slug}`)
