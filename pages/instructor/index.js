@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import RequireInstructor from "../../component/route/requireinstructor";
 import { Avatar, Tooltip } from "antd";
-import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
+import {
+  CheckCircleOutlined,
+  UserSwitchOutlined,
+  CloseCircleOutlined,
+} from "@ant-design/icons";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
 const userIndex = () => {
   const [courses, setCourses] = useState([]);
-
+  const [enroll, setEnroll] = useState(0);
   const getCourses = async (p) => {
-    //
+    //  slug
     try {
       const { data } = await axios.get("api/instructor-courses");
       setCourses(data);
@@ -21,7 +25,15 @@ const userIndex = () => {
   useEffect((p) => {
     getCourses();
   }, []);
+
+  //
+
+  //
+
+  //
+
   // class
+
   return (
     <RequireInstructor>
       <>
@@ -83,7 +95,7 @@ const userIndex = () => {
                   <div className="ant-col-xs-2">
                     <h4 className="pointer mt-3">
                       {course.published ? (
-                        <Tooltip title="Published">
+                        <Tooltip className="x" title="Published">
                           <CheckCircleOutlined className="text-success" />
                         </Tooltip>
                       ) : (
