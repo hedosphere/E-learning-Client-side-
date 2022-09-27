@@ -8,12 +8,9 @@ import { Badge } from "antd";
 
 //
 const home = () => {
-  //
-  //
-
+ 
   const [courses, setCourses] = useState();
 
-  // //
 
   // //
   const getPublishedCourses = async (e) => {
@@ -33,7 +30,6 @@ const home = () => {
     getPublishedCourses();
   }, []);
 
-  // //
 
   //
   return (
